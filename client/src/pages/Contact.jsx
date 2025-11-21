@@ -1,6 +1,5 @@
 import { useTitle } from "../hooks/useTitle";
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
 
 export default function Contact() {
   useTitle("Contact");
@@ -11,17 +10,48 @@ export default function Contact() {
   const [email,     setEmail]     = useState("");
   const [message,   setMessage]   = useState("");
 
-  const navigate = useNavigate();
+const handleSubmit = async (e) => {
+  e.preventDefault();
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    if (!firstName || !email.includes("@") || !message) return;
+  if (!firstName || !lastName || !email) {
+    alert("Please fill in all required fields.");
+    return;
+  }
 
-    const contact = { firstName, lastName, phone, email, message };
-    console.log("Contact form submit:", contact);
+  try {
+    const res = await fetch("http://localhost:3002/contacts", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        firstname: firstName,
+        lastname: lastName,
+        email: email,
+        phone: phone,
+        message: message,
+      }),
+    });
 
-    navigate("/", { state: { contact } });
-  };
+    if (!res.ok) {
+      console.error("Failed to submit contact", res.status);
+      alert("There was a problem submitting the form.");
+      return;
+    }
+
+    setFirstName("");
+    setLastName("");
+    setPhone("");
+    setEmail("");
+    setMessage("");
+
+    alert("Contact submitted successfully!");
+  } catch (err) {
+    console.error("Error submitting contact", err);
+    alert("Network error while submitting the form.");
+  }
+};
+
 
   return (
     <>

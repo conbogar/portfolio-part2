@@ -1,4 +1,5 @@
 import { useTitle } from "../hooks/useTitle.js";
+import EducationForm from "../components/EducationForm.jsx";
 
 export default function Education() {
     useTitle("Education");
@@ -19,6 +20,7 @@ export default function Education() {
                         <li>Tools: Git, Linux, Docker, VS Code, IntelliJ, SQL Developer</li>
                     </ul>
                 </article>
+                <EducationForm />
             </section>
         </>
     );

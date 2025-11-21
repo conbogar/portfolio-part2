@@ -7,6 +7,8 @@ import Projects from './pages/Projects.jsx'
 import Services from './pages/Services.jsx'
 import Layout from './components/Layout.jsx'
 import NotFound from './pages/NotFound.jsx'
+import SignUp from './pages/SignUp.jsx'
+import SignIn from './pages/SignIn.jsx'
 
 const MainRouter = () => {
     return (
@@ -20,6 +22,8 @@ const MainRouter = () => {
                 <Route path = "/contact" element = {<Contact />} />
                 <Route path = "/services" element = {<Services />} />
                 <Route path = "/projects" element = {<Projects />} />
+                <Route path = "/signup" element = {<SignUp />} />
+                <Route path = "/signin" element = {<SignIn />} />
                 <Route path = "*" element = {<NotFound />} />
             </Routes>
         </main>

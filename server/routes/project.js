@@ -9,16 +9,16 @@ import {
 } from '../controllers/project.js'
 
 import authMiddleware from '../middlewares/auth.js';
+import adminMiddleware from '../middlewares/admin.js';
 
-// Router /projects
 const router = express.Router();
 
-// HTTP Verbs for RESTful APIs GET, POST, PUT, DELETE
 router.get('/', authMiddleware, getAllProjects);
 router.get('/:id', authMiddleware, getProjectById);
-router.post('/', authMiddleware, createProject);
-router.put('/:id', authMiddleware, updateProject);
-router.delete('/:id', authMiddleware, deleteProject);
-router.delete('/', authMiddleware, deleteAllProjects);
+
+router.post('/', authMiddleware, adminMiddleware, createProject);
+router.put('/:id', authMiddleware, adminMiddleware, updateProject);
+router.delete('/:id', authMiddleware, adminMiddleware, deleteProject);
+router.delete('/', authMiddleware, adminMiddleware, deleteAllProjects);
 
 export default router;

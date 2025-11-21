@@ -2,6 +2,7 @@ import { useTitle } from "../hooks/useTitle.js";
 import wpfCalculator from '../assets/wpf-calculator.png';
 import reactPortfolio from '../assets/react-portfolio.png';
 import javaSingers from '../assets/java-singers.png';
+import ProjectForm from "../components/ProjectForm.jsx";
 
 export default function Projects() {
     useTitle("Projects");
@@ -91,6 +92,7 @@ export default function Projects() {
                         <img className="project-image" src={javaSingers} alt="Project 1 screenshot" />
                     </div>
                 </article>
+                 <ProjectForm />
             </section>
         </>
     );
