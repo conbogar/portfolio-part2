@@ -22,7 +22,7 @@ export default function Home() {
         <section className="home">
         <div className="intro">
             <section className="home-intro">
-                <p>Hi, I’m Connor. I build simple, reliable apps.</p>
+                <p>Hi, I’m Connor. I build simple, reliable apps. This paragraph was updated as part of my CI/CD deployment demo.</p>
                 <p>I’m a software engineering student focused on React, Java, C#, and SQL. I’m open to internships and collaborations.</p>
                 <p>Feel free to explore my site to learn more about me, my skills, and my projects.</p>
 
