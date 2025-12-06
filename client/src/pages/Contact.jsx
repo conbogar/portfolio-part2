@@ -1,5 +1,6 @@
 import { useTitle } from "../hooks/useTitle";
 import { useState } from "react";
+import { API_BASE_URL } from "../apiConfig";
 
 export default function Contact() {
   useTitle("Contact");
@@ -19,7 +20,7 @@ const handleSubmit = async (e) => {
   }
 
   try {
-    const res = await fetch("http://localhost:3002/contacts", {
+    const res = await fetch(`${API_BASE_URL}/contacts`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

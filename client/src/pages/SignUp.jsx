@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { API_BASE_URL } from "../apiConfig";
 
 export default function SignUp() {
   const [name, setName] = useState("");
@@ -16,7 +17,7 @@ export default function SignUp() {
     }
 
     try {
-      const res = await fetch("http://localhost:3002/users", {
+      const res = await fetch(`${API_BASE_URL}/users`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

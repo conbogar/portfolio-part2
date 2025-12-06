@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { API_BASE_URL } from "../apiConfig";
 
 export default function SignIn() {
   const [email, setEmail] = useState("");
@@ -15,7 +16,7 @@ export default function SignIn() {
     }
 
     try {
-      const res = await fetch("http://localhost:3002/auth/signin", {
+      const res = await fetch(`${API_BASE_URL}/auth/signin`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
