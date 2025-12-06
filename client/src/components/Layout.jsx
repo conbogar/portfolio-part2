@@ -31,7 +31,15 @@ export default function Layout() {
     <>
       <header>
         <div className="logo-brand">
-          <img src={logo} className="g-logo" alt="Gardiner logo" />
+          <img
+            src={logo}
+            className="g-logo"
+            alt="Gardiner logo"
+            loading="lazy"
+            width={48}
+            height={48}
+          />
+
           <span className="brand">Portfolio</span>
         </div>
         <nav>
